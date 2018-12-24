@@ -24,3 +24,5 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+checkpoint.sublime-project
+checkpoint.sublime-workspace

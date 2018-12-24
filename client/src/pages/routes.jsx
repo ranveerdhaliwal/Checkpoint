@@ -5,6 +5,7 @@ import { Route, Redirect, Switch } from 'react-router-dom';
 
 import HomePage from './HomePage';
 import SearchPage from './SearchPage';
+import CollectionPage from './CollectionPage';
 
 export const routesList = [
   {
@@ -17,13 +18,18 @@ export const routesList = [
     component: SearchPage,
     name: 'Search'
   },
+  {
+    path: '/Collection',
+    component: CollectionPage,
+    name: 'Collection'
+  },
 ];
 
 export const Routes = (props) => {
   return (
       <Switch>
         <Route exact path="/">
-          <Redirect to="/Home"></Redirect>
+          <Redirect to="/Collection"></Redirect>
         </Route>
         {
           routesList.map(

@@ -1,26 +1,23 @@
 import React from 'react';
 
-import Grid from '@material-ui/core/Grid';
-
 import styled from 'styled-components';
 
 const StyledFrame = styled.div`
-  margin-top: 64px;
+  
   //margin-left: 180px;
+  max-width: 880px;
+  margin: auto;
+  margin-top: 64px;
+  padding: 0px 40px;
 `;
 
 const AppFrame = (props) => {
+  return (
+    <StyledFrame>
+      {props.children}
+    </StyledFrame>
 
-    return (
-      <StyledFrame>
-        <Grid container justify="center">
-          <Grid item>
-            {props.children}
-          </Grid>
-        </Grid>
-      </StyledFrame>
-
-    );
+  );
 }
 
 export default AppFrame;

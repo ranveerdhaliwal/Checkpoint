@@ -2,50 +2,26 @@ import React, { Component } from 'react';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import Typography from '@material-ui/core/Typography';
+import { MuiThemeProvider } from '@material-ui/core/styles';
+import theme from 'style/theme';
 
-import { Link } from 'react-router-dom';
-
-import AppFrame from './components/common/AppFrame';
+import AppFrame from 'components/common/AppFrame';
 
 import { Routes } from './pages/routes'
 
-import styled from 'styled-components';
-
-const StyledDiv = styled.div`
-  margin-left: -18px;
-`;
+import NavBar from 'components/NavBar';
 
 class App extends Component {
   render() {
     return (
-      <div>
+      <MuiThemeProvider theme={theme}>
         <CssBaseline></CssBaseline>
-        <AppBar position="fixed" >
-          <Toolbar variant="dense">
-            <StyledDiv>
-              <IconButton color="inherit" aria-label="Menu">
-                <MenuIcon />
-              </IconButton>
-            </StyledDiv>
-            
-            <Typography variant="h6" color="inherit">
-              Checkpoint
-            </Typography>
-            
-            <Link to="/Search">Search</Link>
-
-          </Toolbar>
-        </AppBar>
-
+        
+        <NavBar></NavBar>
         <AppFrame>
           <Routes></Routes>
         </AppFrame>
-      </div>
+      </MuiThemeProvider>
     );
   }
 }

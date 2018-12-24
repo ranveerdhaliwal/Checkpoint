@@ -3,9 +3,18 @@ import PropTypes from 'prop-types';
 
 import {default as MUITextField} from '@material-ui/core/TextField';
 
+import styled from 'styled-components';
+
+const TextFieldWrapper = styled(MUITextField)`
+  
+  && {
+    width: 100%;
+  }
+  
+`
 const TextField = (props) => {
   return (
-    <MUITextField
+    <TextFieldWrapper
       id="standard-controlled"
       label={props.label}
       margin="normal"
@@ -13,7 +22,7 @@ const TextField = (props) => {
       onChange={props.onChange}
       autoComplete="off"
     >
-    </MUITextField>
+    </TextFieldWrapper>
   );
 
 }
