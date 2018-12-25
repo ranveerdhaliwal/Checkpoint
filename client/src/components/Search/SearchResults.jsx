@@ -2,27 +2,47 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-const LoadingDiv = styled.div`
-  width: 200px;
-  height: 200px;
-  background-color: red;
-`;
+import SearchResultCard from './SearchResultCard';
+import SearchResultLoader from './SearchResultLoader';
+
+const WrapperDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+`
+
+const constructLoaders = () => {
+  let loaders = [];
+  for (let i of Array(8).keys()) {
+    loaders.push(<SearchResultLoader key={i}></SearchResultLoader>);
+  }
+  return loaders;
+}
 
 const SearchResults = ({results, loading, error}) => {
   if (loading) {
-    return <LoadingDiv></LoadingDiv>;
+    const loaders = constructLoaders();
+    return (
+      <WrapperDiv>
+        {loaders}
+      </WrapperDiv>
+    );
   }
 
   let resultsDisplay = results.map(item => (
-    <li key={item.id}>
-     {item.name} 
-    </li>
+    <SearchResultCard
+      key={item.id}
+      name={item.name}
+      releaseDate={item.original_release_date}
+      image={item.image.small_url}
+    >
+    </SearchResultCard>
   ));
 
   return (
-    <ul>
+    <WrapperDiv>
       {resultsDisplay}
-    </ul>
+    </WrapperDiv>
   )
 }
 

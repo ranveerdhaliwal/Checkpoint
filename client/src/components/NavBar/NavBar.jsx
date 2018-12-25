@@ -6,8 +6,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import FlagIcon from '@material-ui/icons/Flag';
 import Typography from '@material-ui/core/Typography';
 
-import { StyledLink } from 'components/common';
-
 import styled from 'styled-components';
 
 import { YELLOWISH, ORANGISH } from 'style/Colors';
@@ -19,11 +17,7 @@ const StyledDiv = styled.div`
 `;
 
 const StyledAppBar = styled(AppBar)`
-  //background: linear-gradient(to right, #ffd400 0%, #ffbd04 100%);
-
-  //background: linear-gradient(to right, #fcba17 0%, #fd571d 50%, #fc4945 100%);
   background: linear-gradient(to right, ${YELLOWISH} 0%, ${ORANGISH} 100%);
-
 `;
 
 const NavBar = (props) => {
@@ -45,7 +39,6 @@ const NavBar = (props) => {
   )
 }
 
-
 NavBar.propTypes = {
   label: PropTypes.string,
   value: PropTypes.string,
@@ -53,4 +46,3 @@ NavBar.propTypes = {
 }
 
 export default NavBar;
-

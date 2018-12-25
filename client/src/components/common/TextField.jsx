@@ -13,14 +13,17 @@ const TextFieldWrapper = styled(MUITextField)`
   
 `
 const TextField = (props) => {
+  const { label, value, onChange, ...rest } = props;
+
   return (
     <TextFieldWrapper
       id="standard-controlled"
-      label={props.label}
+      label={label}
       margin="normal"
-      value={props.value}
-      onChange={props.onChange}
+      value={value}
+      onChange={onChange}
       autoComplete="off"
+      {...rest}
     >
     </TextFieldWrapper>
   );

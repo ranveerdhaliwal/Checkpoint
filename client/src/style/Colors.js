@@ -5,3 +5,4 @@ export const ORANGISH = '#fd571d';
 
 export const LIGHT_YELLOW = '#fff3d6';
 
+export const GRAY = '#eee';

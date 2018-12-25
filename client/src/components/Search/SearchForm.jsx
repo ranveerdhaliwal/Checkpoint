@@ -1,12 +1,9 @@
 import React from 'react';
 
-import Button from '@material-ui/core/Button';
 import { TextField } from 'components/common';
 
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
-
-import Grid from '@material-ui/core/Grid';
 
 import styled from 'styled-components';
 
@@ -40,6 +37,12 @@ class SearchForm extends React.Component {
     this.props.searchForGame(this.state.searchText);
   }
 
+  handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      this.handleSearch();
+    }
+  }
+
   render() {
     return (
       <FormWrapper>
@@ -47,6 +50,7 @@ class SearchForm extends React.Component {
             <TextField
               label="Search for games"
               onChange={this.handleTextChange}
+              onKeyPress={this.handleKeyPress}
               value={this.state.searchText}
               >
             </TextField>

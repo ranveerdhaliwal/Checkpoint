@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Typography from '@material-ui/core/Typography';
+
 import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom'
-
 
 import styled from 'styled-components';
 
@@ -39,7 +40,9 @@ const StyledLink = (props) => {
   const Component = isNavLink ? StyledNavLink : StyledNormalLink;
 
   return (
-    <Component {...rest} />
+    <Typography variant="subtitle2">
+      <Component {...rest} />
+    </Typography>
   );
 
 }

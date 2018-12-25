@@ -7,6 +7,8 @@ const url = require('url');
 const querystring = require('querystring');
 const axios = require('axios');
 
+const placeholder_data = require('./placeholder_data');
+
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -15,37 +17,16 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.get('/api/games', (req, res) => {
-  const PLACEHOLDER_DATA = {
-    error: 'OK',
-    limit: 10,
-    offset: 0,
-    number_of_page_results: 10,
-    number_of_total_results: 180,
-    status_code: 1,
-    results: [
-      { id: 544, name: 'Super Mario All-Stars & Super Mario World' },
-      { id: 814, name: 'Mario Superstar Baseball' },
-      { id: 1072, name: 'Dr. Mario 64' },
-      { id: 1334, name: 'Super Mario World' },
-      { id: 1598, name: 'Mario Golf: Toadstool Tour' },
-      { id: 2866, name: "Super Mario World 2: Yoshi's Island" },
-      { id: 2931, name: 'Super Mario 64' },
-      { id: 3410, name: 'Mario Party 5' },
-      { id: 4287, name: 'Mario Pinball Land' },
-      { id: 4379, name: 'Mario Teaches Typing 2' },
-    ],
-    version: '1.0',
-  };
 
   if (typeof process.env.API_KEY_GIANTBOMB === 'undefined') {
-    res.json(PLACEHOLDER_DATA);
+    res.json(placeholder_data.PLACEHOLDER_DATA);
   } else {
     const searchTerm = req.query.searchTerm;
 
     axios.get('https://www.giantbomb.com/api/games/', {
       params: {
         limit: 10,
-        field_list: 'id,name',
+        field_list: 'id,name,original_release_date,image',
         format: 'json',
         filter: `name:${searchTerm}`,
         api_key: process.env.API_KEY_GIANTBOMB,
