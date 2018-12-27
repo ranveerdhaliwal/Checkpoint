@@ -22,6 +22,7 @@ app.get('/api/games', (req, res) => {
     res.json(placeholder_data.PLACEHOLDER_DATA);
   } else {
     const searchTerm = req.query.searchTerm;
+    const page = typeof req.query.page === 'undefined' ? 0 : req.query.page;
 
     axios.get('https://www.giantbomb.com/api/games/', {
       params: {
@@ -29,11 +30,12 @@ app.get('/api/games', (req, res) => {
         field_list: 'id,name,original_release_date,image',
         format: 'json',
         filter: `name:${searchTerm}`,
+        offset: page * 10,
         api_key: process.env.API_KEY_GIANTBOMB,
       },
     })
       .then((results) => {
-        // console.log(results);
+        //console.log(results.data);
         res.json(results.data);
       })
       .catch((error) => {

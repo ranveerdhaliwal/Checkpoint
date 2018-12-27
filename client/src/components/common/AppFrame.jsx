@@ -3,9 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledFrame = styled.div`
-  
-  //margin-left: 180px;
-  max-width: 920px;
+  max-width: 1120px;
   margin: auto;
   margin-top: 64px;
   padding: 0px 40px;

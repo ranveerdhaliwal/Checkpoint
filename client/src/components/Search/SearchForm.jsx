@@ -21,13 +21,9 @@ const setTextState = (newText) => ({
 });
 
 class SearchForm extends React.Component {
-  constructor(props){
-    super(props);
-
-    this.state = {
-      searchText: ''
-    };
-  }
+  state = {
+    searchText: ''
+  };
 
   handleTextChange = (event) => {
     this.setState(setTextState(event.target.value));
