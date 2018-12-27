@@ -38,7 +38,6 @@ function collectionCompletedReducer(state = [], action) {
       return action.payload.results;
 
     case COLLECTION_COMPLETED_REMOVE:
-      console.log('IN COLLECTION REMOVE REDUCER');
       return filterGameOut(state, action.payload.game);
 
     default: 
@@ -117,7 +116,6 @@ export function collectionBacklogSet(results) {
 }
 
 export function collectionInProgressAdd(game) {
-  console.log('IN P ADD');
   return {
     type: COLLECTION_INPROGRESS_ADD,
     payload: {
@@ -126,7 +124,6 @@ export function collectionInProgressAdd(game) {
   }
 }
 export function collectionCompletedAdd(game) {
-  console.log('COMP ADD');
   return {
     type: COLLECTION_COMPLETED_ADD,
     payload: {
@@ -136,7 +133,6 @@ export function collectionCompletedAdd(game) {
 }
 
 export function collectionBacklogAdd(game) {
-  console.log('BACK ADD');
   return {
     type: COLLECTION_BACKLOG_ADD,
     payload: {
@@ -147,7 +143,6 @@ export function collectionBacklogAdd(game) {
 
 
 export function collectionInProgressRemove(game) {
-  console.log('IN P REMOVE');
   return {
     type: COLLECTION_INPROGRESS_REMOVE,
     payload: {
@@ -156,7 +151,6 @@ export function collectionInProgressRemove(game) {
   }
 }
 export function collectionCompletedRemove(game) {
-  console.log('COMP REMOVE');
   return {
     type: COLLECTION_COMPLETED_REMOVE,
     payload: {
@@ -166,7 +160,6 @@ export function collectionCompletedRemove(game) {
 }
 
 export function collectionBacklogRemove(game) {
-  console.log('BACK REMOVE');
   return {
     type: COLLECTION_BACKLOG_REMOVE,
     payload: {
