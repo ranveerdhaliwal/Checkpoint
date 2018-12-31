@@ -24,9 +24,16 @@ export default function searchReducer(state = INITIAL_STATE, action) {
         searchTerm: action.payload.searchTerm,
       });
     case SEARCH_SUCCEEDED:
+      let page;
+      if (action.payload.results.offset === 0){
+        page = 0;
+      } else {
+        page = action.payload.results.offset / state.rowsPerPage;
+      }
+
       return Object.assign({}, state, {
         results: action.payload.results.results,
-        page: action.payload.results.offset / state.rowsPerPage,
+        page: page,
         totalCount: action.payload.results.number_of_total_results,
         loading: false,
         error: null

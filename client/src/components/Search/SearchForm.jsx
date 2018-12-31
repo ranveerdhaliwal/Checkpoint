@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { TextField } from 'components/common';
 
@@ -42,21 +43,25 @@ class SearchForm extends React.Component {
   render() {
     return (
       <FormWrapper>
-          <TextFieldWrapper>
-            <TextField
-              label="Search for games"
-              onChange={this.handleTextChange}
-              onKeyPress={this.handleKeyPress}
-              value={this.state.searchText}
-              >
-            </TextField>
-          </TextFieldWrapper>
-          <IconButton onClick={this.handleSearch} color="primary" aria-label="Search">
-            <SearchIcon />
-          </IconButton>
+        <TextFieldWrapper>
+          <TextField
+            label="Search for games"
+            onChange={this.handleTextChange}
+            onKeyPress={this.handleKeyPress}
+            value={this.state.searchText}
+            >
+          </TextField>
+        </TextFieldWrapper>
+        <IconButton onClick={this.handleSearch} color="primary" aria-label="Search">
+          <SearchIcon />
+        </IconButton>
       </FormWrapper>
     )
   }
+}
+
+SearchForm.propTypes = {
+  searchForGame: PropTypes.func.isRequired,
 }
 
 export default SearchForm;

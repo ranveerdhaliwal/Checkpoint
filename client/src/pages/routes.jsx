@@ -29,7 +29,7 @@ export const Routes = (props) => {
   return (
       <Switch>
         <Route exact path="/">
-          <Redirect to="/Collection"></Redirect>
+          <Redirect to="/Search"></Redirect>
         </Route>
         {
           routesList.map(

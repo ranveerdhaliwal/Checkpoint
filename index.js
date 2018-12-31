@@ -7,7 +7,7 @@ const url = require('url');
 const querystring = require('querystring');
 const axios = require('axios');
 
-const placeholder_data = require('./placeholder_data');
+const placeholder_data = require('./client/src/test/placeholder_data');
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 app.get('/api/games', (req, res) => {
 
   if (typeof process.env.API_KEY_GIANTBOMB === 'undefined') {
-    res.json(placeholder_data.PLACEHOLDER_DATA);
+    res.json(placeholder_data.PLACEHOLDER_DATA.data.results);
   } else {
     const searchTerm = req.query.searchTerm;
     const page = typeof req.query.page === 'undefined' ? 0 : req.query.page;

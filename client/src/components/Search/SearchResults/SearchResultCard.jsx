@@ -193,7 +193,7 @@ SearchResultCard.propTypes = {
   game: PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    original_release_date: PropTypes.string.isRequired,
+    original_release_date: PropTypes.string,
     image: PropTypes.object.isRequired,
   }).isRequired,
   foundInProgress: PropTypes.bool.isRequired,
