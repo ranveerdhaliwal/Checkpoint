@@ -9,11 +9,24 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 import Moment from 'react-moment';
 
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import { StatusIcon } from 'components/common';
 
 import { WHITE, GRAY } from 'style/Colors';
+
+const SlideAndFadeIn = keyframes`
+  from {
+    transform: translate3d(0, -1%, 0);
+    opacity: 0;
+    visibility: visible;
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+`
 
 const StyledCardDiv = styled.div`
   width: 190px;
@@ -23,6 +36,8 @@ const StyledCardDiv = styled.div`
   box-shadow: 1px 1px 7px 2px rgba(0,0,0,0.06);
   position: relative;
   background-color: ${WHITE};
+  
+  animation: ${SlideAndFadeIn} 1s ease 0s;
 
   &::after {
     content: '';

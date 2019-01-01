@@ -51,6 +51,7 @@ class SearchForm extends React.Component {
             onChange={this.handleTextChange}
             onKeyPress={this.handleKeyPress}
             value={this.state.searchText}
+            autoFocus={true}
             >
           </TextField>
         </TextFieldWrapper>
