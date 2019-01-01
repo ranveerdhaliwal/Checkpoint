@@ -15,7 +15,7 @@ const WrapperDiv = styled.div`
 // putting a bunch of placeholder loaders on the screen to take up a good amount of space
 const constructLoaders = () => {
   let loaders = [];
-  for (let i of Array(8).keys()) {
+  for (let i of Array(10).keys()) {
     loaders.push(<SearchResultLoader key={i}></SearchResultLoader>);
   }
   return loaders;
