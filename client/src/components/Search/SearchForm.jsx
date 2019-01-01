@@ -31,7 +31,9 @@ class SearchForm extends React.Component {
   }
 
   handleSearch = () => {
-    this.props.searchForGame(this.state.searchText);
+    if (this.state.searchText !== '') {
+      this.props.searchForGame(this.state.searchText);
+    }
   }
 
   handleKeyPress = (event) => {
