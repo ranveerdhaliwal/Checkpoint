@@ -48,7 +48,7 @@ describe('Search Form', () => {
 
     expect(props.searchForGame).toHaveBeenCalled();
 
-    expect(props.searchForGame).toBeCalledWith('halo');
+    expect(props.searchForGame).toBeCalledWith({'searchTerm': 'halo'});
   });
 
 });

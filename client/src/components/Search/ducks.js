@@ -59,10 +59,17 @@ export default function searchReducer(state = INITIAL_STATE, action) {
 // main action that takes in the search term and calls backend API
 // only searches games right now, and search term is the name of the game 
 // not making a pun, I literally mean we're searching for games by their name
-export function searchForGame(searchTerm) {
+export function searchForGame({searchTerm, page}) {
   return (dispatch, getState) => {
     const state = getState();
-    const page = state.page;
+
+    if (typeof page === 'undefined') {
+      page = state.page;
+    }
+
+    if (typeof searchTerm === 'undefined'){
+      searchTerm = state.search.searchTerm;
+    }
 
     dispatch(searchStarted(searchTerm));
 
@@ -99,36 +106,6 @@ export function searchFailed(error) {
     type: SEARCH_FAILED,
     payload: {
       error
-    }
-  }
-}
-
-// funtion to change pages and get new request
-// far from ideal but I couldn't figure out how to reuse the internal logic yet
-// will refactor as soon I as I find away
-export function searchForGameWithPageChange(page) {
-  return (dispatch, getState) => {
-    
-    dispatch(searchSetPage(page));
-    const state = getState();
-
-    const searchTerm = state.search.searchTerm;
-
-    api.get(`games/?searchTerm=${searchTerm}&page=${page}`)
-      .then(res => {
-        dispatch(searchSucceeded(res.data));
-      })
-      .catch (error => {
-        dispatch(searchFailed(error.message));
-      });
-  }
-}
-
-export function searchSetPage(page) {  
-  return {
-    type: SEARCH_NEW_PAGE,
-    payload: {
-      page
     }
   }
 }

@@ -74,7 +74,7 @@ describe('Search redux ducks tests', () => {
       { type: searchSucceedAction.type, payload: searchSucceedAction.payload }
     ];
 
-    await store.dispatch(searchForGame(searchTerm));
+    await store.dispatch(searchForGame({searchTerm}));
 
     expect(store.getActions()).toEqual(expectedActions);
 

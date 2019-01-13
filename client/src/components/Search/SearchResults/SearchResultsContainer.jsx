@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import SearchResults from './SearchResults';
 
-import { searchForGameWithPageChange } from '../ducks';
+import { searchForGame } from '../ducks';
 
 const mapStateToProps = (state) => ({
   results: state.search.results,
@@ -17,7 +17,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  handlePageChange: (page) => dispatch(searchForGameWithPageChange(page)),
+  handlePageChange: (options) => dispatch(searchForGame(options)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchResults);

@@ -30,14 +30,14 @@ const SearchPagination = (props) => {
         {currentStartNumber} - {currentEndNumber} of {totalCount}
       </Typography>
       <IconButton
-        onClick={() => handlePageChange(page - 1)}
+        onClick={() => handlePageChange({page: page - 1})}
         disabled={page === 0}
         aria-label="Previous Page"
       >
         <KeyboardArrowLeft />
       </IconButton>
       <IconButton
-        onClick={() => handlePageChange(page + 1)}
+        onClick={() => handlePageChange({page: page + 1})}
         disabled={page >= Math.ceil(totalCount / rowsPerPage) - 1}
         aria-label="Next Page"
       >
