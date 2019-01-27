@@ -20,6 +20,6 @@ To start the client, go to the /client folder and simply run:
 
 ## Screenshots:
 
-![Search](https://imgur.com/hXlFN9X.png "Search")
+![Search](https://i.imgur.com/l9LBHGR.jpg "Search")
 
-![Collection](https://imgur.com/ZoyqEV3.png "Collection")
+![Collection](https://i.imgur.com/IIMpMNV.jpg "Collection")
