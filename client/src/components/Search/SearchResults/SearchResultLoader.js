@@ -4,7 +4,7 @@ import ContentLoader from 'react-content-loader';
 
 import styled from 'styled-components';
 
-const width = 188;
+const width = 190;
 const height = 321;
 
 const StyledWrapper = styled.div`

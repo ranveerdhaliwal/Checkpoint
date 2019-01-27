@@ -8,7 +8,13 @@ import SearchIcon from '@material-ui/icons/Search';
 
 import styled from 'styled-components';
 
+import { LIGHT_BLUE } from 'style/Colors';
+
 const FormWrapper = styled.div`
+  max-width: 1120px;
+  width: 100%;
+  background-color: ${LIGHT_BLUE};
+  padding: 12px;
   display: flex;
   align-items: flex-end;
 `;

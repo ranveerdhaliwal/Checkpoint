@@ -11,6 +11,7 @@ const WrapperDiv = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
 `
 // putting a bunch of placeholder loaders on the screen to take up a good amount of space
 const constructLoaders = () => {

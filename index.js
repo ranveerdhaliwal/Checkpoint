@@ -16,6 +16,8 @@ app.use(bodyParser.json());
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
 
+const BASE_URL = 'https://www.giantbomb.com/api/';
+
 app.get('/api/games', (req, res) => {
 
   if (typeof process.env.API_KEY_GIANTBOMB === 'undefined') {
@@ -24,27 +26,47 @@ app.get('/api/games', (req, res) => {
     const searchTerm = req.query.searchTerm;
     const page = typeof req.query.page === 'undefined' ? 0 : req.query.page;
 
-    axios.get('https://www.giantbomb.com/api/games/', {
+    axios.get(`${BASE_URL}games/`, {
       params: {
         limit: 10,
-        field_list: 'id,name,original_release_date,image',
+        field_list: 'id,guid,name,original_release_date,image',
         format: 'json',
         filter: `name:${searchTerm}`,
         offset: page * 10,
         api_key: process.env.API_KEY_GIANTBOMB,
       },
     })
-      .then((results) => {
-        //console.log(results.data);
-        res.json(results.data);
-      })
-      .catch((error) => {
-        // res.json(results.error);
-        console.log(error);
-      });
+    .then((results) => {
+      //console.log(results.data);
+      res.json(results.data);
+    })
+    .catch((error) => {
+      // res.json(results.error);
+      console.log(error);
+    });
   }
 });
 
+app.get('/api/games/:guid', (req, res) => {
+  if (typeof process.env.API_KEY_GIANTBOMB === 'undefined') {
+    res.json(placeholder_data.GAME_DETAILS.data.results);
+  } else {
+    axios.get(`${BASE_URL}game/${req.params.guid}`, {
+      params: {
+        api_key: process.env.API_KEY_GIANTBOMB,
+        format: 'json',
+        field_list: 'id,guid,name,original_release_date,image,deck',
+      }
+    })
+    .then((results) => {
+      res.json(results.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  }
+
+});
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
 app.get('*', (req, res) => {

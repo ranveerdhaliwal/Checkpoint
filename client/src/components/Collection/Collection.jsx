@@ -116,7 +116,12 @@ class Collection extends React.Component {
                     draggableId={game.id}
                     index={index}
                   >
-                    <CollectionGameCard game={game} removeDispatch={dispatchObj.remove[id]}></CollectionGameCard>
+                    <CollectionGameCard 
+                      game={game} 
+                      removeDispatch={dispatchObj.remove[id]} 
+                      getGameDetails={this.props.getGameDetails} 
+                    >
+                    </CollectionGameCard>
                   </Draggable>
                 ))}
               </Droppable>

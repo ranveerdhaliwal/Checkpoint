@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
+import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
@@ -86,7 +87,7 @@ const OverlayWrapper = styled.div`
   z-index:2;
 `
 
-const OverlayButtonWrapper = styled(IconButton)`
+const OverlayMenuButtonWrapper = styled(IconButton)`
   position: absolute;
   top: 3%;
   left: 70%;
@@ -101,6 +102,30 @@ const OverlayButtonWrapper = styled(IconButton)`
   
   && { 
     background-color: ${WHITE};  
+  }
+
+  &&:hover { 
+    background-color: ${WHITE};  
+  }
+  
+`
+
+const OverlayDetailButtonWrapper = styled(Button)`
+  
+  top: 65%;
+  left: 30%;
+  box-shadow: 1px 1px 2px 4px rgba(0,0,0,0.1);
+
+  opacity: 0;
+  transition: opacity 0.5s ease 0s;
+
+  ${OverlayWrapper}:hover & {
+    opacity: 1;
+  }
+  
+  && { 
+    background-color: ${WHITE};  
+    position: absolute;
   }
 
   &&:hover { 
@@ -137,16 +162,20 @@ class SearchResultCard extends React.PureComponent {
     this.handleClose();
   }
 
+  handleGetGameDetails = () => {
+    this.props.getGameDetails(this.props.game.guid);
+    this.handleClose(); 
+  }
+
   render() {
     const { anchorEl } = this.state;
     const { game, foundInProgress, foundInCompleted, foundInBacklog } = this.props;
 
     const alreadyInCollection = foundInProgress || foundInCompleted || foundInBacklog;
     
-
     const addToCollectionButton = (
       <>
-        <OverlayButtonWrapper 
+        <OverlayMenuButtonWrapper 
           color="primary" 
           aria-label="Add"
           aria-owns={anchorEl ? 'add-menu' : undefined}
@@ -154,7 +183,7 @@ class SearchResultCard extends React.PureComponent {
           onClick={this.handleMenuOpen}
         >
           <MoreVertIcon />
-        </OverlayButtonWrapper>
+        </OverlayMenuButtonWrapper>
         <Menu
           id="add-menu"
           anchorEl={anchorEl}
@@ -164,6 +193,7 @@ class SearchResultCard extends React.PureComponent {
           <MenuItem onClick={this.handleMenuAddToBacklog}>Add to Backlog</MenuItem>
           <MenuItem onClick={this.handleMenuAddToCompleted}>Add to Completed</MenuItem>
           <MenuItem onClick={this.handleMenuAddToInProgress}>Add to In Progress</MenuItem>
+          <MenuItem onClick={this.handleGetGameDetails}>Details</MenuItem>
         </Menu>
       </>
     );
@@ -180,12 +210,22 @@ class SearchResultCard extends React.PureComponent {
         addToCollectionButton
     );
 
+    const hoverDetailButton = (
+      <OverlayDetailButtonWrapper
+        color="inherit"
+        onClick={this.handleGetGameDetails}
+      >
+      Details
+      </OverlayDetailButtonWrapper>
+    );
+
     return (
       <StyledCardDiv>
         <WrapperDiv>
           {game.image && <StyledImg src={game.image.small_url}></StyledImg>}
           <OverlayWrapper>
             {hoverButton}
+            {hoverDetailButton}
           </OverlayWrapper>
           <TextWrapperDiv>
             <Typography variant="body2" >{game.name}</Typography>

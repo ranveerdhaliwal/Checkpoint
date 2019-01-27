@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 
 import { throttle } from 'lodash';
 
-import rootReducer from 'reducers';
+import rootReducer from './reducers';
 
 // saving collection to local storage for now before backend stuff is ready
 // https://medium.com/@jrcreencia/persisting-redux-state-to-local-storage-f81eb0b90e7e

@@ -4,6 +4,7 @@ export const ORANGISH = '#fd571d';
 export const LIGHT_YELLOW = '#fff3d6';
 export const GRAY = '#eee';
 export const GREEN = '#8bc34a';
-
 export const CYAN = '#00bcd4';
 export const DEEP_ORANGE = '#ff5722';
+export const LIGHT_BLUE = '#e5f7ff';
+export const REMOVE_RED = '#dc3545';

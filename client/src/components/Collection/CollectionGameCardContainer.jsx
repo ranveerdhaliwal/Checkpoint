@@ -13,7 +13,7 @@ import { collectionInProgressRemove, collectionCompletedRemove, collectionBacklo
 const mapDispatchToProps = (dispatch) => ({
   collectionInProgressRemove: (game) => dispatch(collectionInProgressRemove(game)),
   collectionCompletedRemove: (game) => dispatch(collectionCompletedRemove(game)),
-  collectionBacklogRemove: (game) => dispatch(collectionBacklogRemove(game))
+  collectionBacklogRemove: (game) => dispatch(collectionBacklogRemove(game)),
 })
 
 export default connect(null, mapDispatchToProps)(CollectionGameCard);

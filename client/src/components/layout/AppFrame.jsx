@@ -2,18 +2,15 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-const StyledFrame = styled.div`
-  max-width: 1120px;
-  margin: auto;
-  margin-top: 64px;
-  padding: 0px 40px;
+const StyledAppFrame = styled.div`
+  display: flex;
 `;
 
 const AppFrame = (props) => {
   return (
-    <StyledFrame>
+    <StyledAppFrame>
       {props.children}
-    </StyledFrame>
+    </StyledAppFrame>
 
   );
 }

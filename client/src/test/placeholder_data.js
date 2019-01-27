@@ -118,4 +118,47 @@ const PLACEHOLDER_DATA = {
   
 };
 
+const GAME_DETAILS = { 
+  data: {
+    results: {
+      error: 'OK',
+      limit: 1,
+      offset: 0,
+      number_of_page_results: 1,
+      number_of_total_results: 1,
+      status_code: 1,
+      results:
+       { deck:
+          'A unique mix of Disney and Square Enix characters join spiky-haired hero Sora on his epic journey to save multiple worlds from the evil of the Heartless and find his lost friends Riku and Kairi.',
+         guid: '3030-10983',
+         id: 10983,
+         image:
+          { icon_url:
+             'https://www.giantbomb.com/api/image/square_avatar/1897536-box_khearts.png',
+            medium_url:
+             'https://www.giantbomb.com/api/image/scale_medium/1897536-box_khearts.png',
+            screen_url:
+             'https://www.giantbomb.com/api/image/screen_medium/1897536-box_khearts.png',
+            screen_large_url:
+             'https://www.giantbomb.com/api/image/screen_kubrick/1897536-box_khearts.png',
+            small_url:
+             'https://www.giantbomb.com/api/image/scale_small/1897536-box_khearts.png',
+            super_url:
+             'https://www.giantbomb.com/api/image/scale_large/1897536-box_khearts.png',
+            thumb_url:
+             'https://www.giantbomb.com/api/image/scale_avatar/1897536-box_khearts.png',
+            tiny_url:
+             'https://www.giantbomb.com/api/image/square_mini/1897536-box_khearts.png',
+            original_url:
+             'https://www.giantbomb.com/api/image/original/1897536-box_khearts.png',
+            image_tags: 'All Images,Box Art' },
+         name: 'Kingdom Hearts',
+         original_release_date: '2002-03-28 00:00:00' },
+      version: '1.0' 
+    }
+  }
+  
+};
+
 module.exports.PLACEHOLDER_DATA = PLACEHOLDER_DATA;
+module.exports.GAME_DETAILS = GAME_DETAILS;

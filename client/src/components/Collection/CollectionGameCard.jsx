@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 
 import styled from 'styled-components';
 
-import { WHITE } from 'style/Colors';
+import { WHITE, REMOVE_RED } from 'style/Colors';
 
 const FlexWrapper = styled.div`
   display: flex;
@@ -49,6 +49,12 @@ const StyledButton = styled(IconButton)`
   
 `
 
+const StyledRemoveButton = styled(MenuItem)`
+  && {
+    color: ${REMOVE_RED}
+  }  
+`
+
 class CollectionGameCard extends React.Component {
   state = {
     anchorEl: null,
@@ -65,6 +71,11 @@ class CollectionGameCard extends React.Component {
   handleMenuRemoveFromCollection = () => {
     this.props.removeDispatch(this.props.game);
     this.handleClose();
+  }
+
+  handleGetGameDetails = () => {
+    this.props.getGameDetails(this.props.game.guid);
+    this.handleClose(); 
   }
 
   render() {
@@ -88,7 +99,8 @@ class CollectionGameCard extends React.Component {
           open={Boolean(anchorEl)}
           onClose={this.handleClose}
         >
-          <MenuItem onClick={this.handleMenuRemoveFromCollection}>Remove</MenuItem>
+          <MenuItem onClick={this.handleGetGameDetails}>Details</MenuItem>
+          <StyledRemoveButton onClick={this.handleMenuRemoveFromCollection}>Remove</StyledRemoveButton>
         </Menu>
       </ButtonWrapper>
     );

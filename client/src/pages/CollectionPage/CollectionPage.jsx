@@ -5,7 +5,7 @@ import { CollectionContainer } from 'components/Collection';
 import styled from 'styled-components';
 
 const StyledFrame = styled.div`
-  padding: 0 100px;
+  padding: 0 64px;
 `;
 
 const CollectionPage = () => {

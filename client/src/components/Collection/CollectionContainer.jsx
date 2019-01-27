@@ -6,6 +6,8 @@ import { collectionInProgressAdd, collectionCompletedAdd, collectionBacklogAdd,
   collectionInProgressRemove, collectionCompletedRemove, collectionBacklogRemove,
   collectionInProgressSet, collectionCompletedSet, collectionBacklogSet } from './ducks';
 
+import { getGameDetails } from 'components/DetailSideBar/ducks';
+
 const mapStateToProps = (state) => ({
   inprogress: state.collection.inprogress,
   completed: state.collection.completed,
@@ -22,6 +24,7 @@ const mapDispatchToProps = (dispatch) => ({
   collectionInProgressSet: (game) => dispatch(collectionInProgressSet(game)),
   collectionCompletedSet: (game) => dispatch(collectionCompletedSet(game)),
   collectionBacklogSet: (game) => dispatch(collectionBacklogSet(game)),
+  getGameDetails: (guid) => dispatch(getGameDetails(guid)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Collection);

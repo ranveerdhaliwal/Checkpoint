@@ -21,6 +21,11 @@ const StyledDiv = styled.div`
 
 const StyledAppBar = styled(AppBar)`
   background: linear-gradient(to right, ${YELLOWISH} 0%, ${ORANGISH} 100%);
+
+  && {
+    box-shadow: none;  
+  }
+  
 `;
 
 const FlexWrapper = styled.div`
@@ -47,6 +52,7 @@ const NavBar = (props) => {
           </Typography>
           
           <NavLinkHolder></NavLinkHolder>
+
           <FillerDiv></FillerDiv>
           
           <IconButton 
