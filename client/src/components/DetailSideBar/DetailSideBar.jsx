@@ -37,7 +37,6 @@ const SideBarWrapper = styled.div`
 `
 
 const DetailSideBar = (props) => {
-  
 
   const { 
     results, 
@@ -48,8 +47,6 @@ const DetailSideBar = (props) => {
   } = props;
 
   const game = results[currentGameID];
-  
-  console.log(game);
 
   const header = (
     <DetailSideBarHeader toggleSideBar={toggleSideBar} />
@@ -92,11 +89,8 @@ const DetailSideBar = (props) => {
           </SideBarWrapper>
         </StyledDrawer>
       </Hidden>
-    </>
-    
-    
+    </>    
   )
 }
-
 
 export default DetailSideBar;
