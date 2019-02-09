@@ -7,7 +7,7 @@ const url = require('url');
 const querystring = require('querystring');
 const axios = require('axios');
 
-const placeholder_data = require('./client/src/test/placeholder_data');
+const placeholder_data = require('./placeholder_data');
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));

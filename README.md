@@ -10,13 +10,21 @@ I'm also using a variety of libraries with the major ones including: React, Redu
 
 Get your own personal API key from Giant bomb and add it to an .env file in /server
 
-To start the server, go to the /server folder and simply run:
+This approach will also require Docker to be installed
 
-### `yarn start`
+To start the application in the background:
 
-To start the client, go to the /client folder and simply run:
+### `docker-compose up -d`
 
-### `yarn start`
+To stop the application:
+
+### `docker-compose down`
+
+To rebuild the images after making changes:
+
+### `docker-compose build`
+
+It should be available at `localhost:3000`
 
 ## Screenshots:
 
